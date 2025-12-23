@@ -10,10 +10,10 @@ const Footer = () => {
         <ul className="flex flex-wrap justify-center gap-6 text-sm md:text-base">
           <li><a href="#home" className="hover:text-blue-200 transition">Home</a></li>
           <li><a href="#about" className="hover:text-blue-200 transition">About</a></li>
-          <li><a href="#services" className="hover:text-blue-200 transition">Services</a></li>
-          <li><a href="#portfolio" className="hover:text-blue-200 transition">Portfolio</a></li>
-          <li><a href="#testimonials" className="hover:text-blue-200 transition">Testimonials</a></li>
-          <li><a href="#connect" className="hover:text-blue-200 transition">Let'sContact</a></li>
+          <li><a href="#skill" className="hover:text-blue-200 transition">Skills</a></li>
+          <li><a href="#portfolio" className="hover:text-blue-200 transition">Certification</a></li>
+          <li><a href="public/Akinyemi Pelumi CV.pdf" className="hover:text-blue-200 transition">Download CV</a></li>
+          <li><a  href="#contact" className="hover:text-blue-200 transition">Contact Me</a></li>
         </ul>
 
         {/* Social Icons */}

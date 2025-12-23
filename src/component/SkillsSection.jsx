@@ -74,8 +74,8 @@ const cardVariants = {
 const SkillsSection = () => {
   return (
     <section
-      id="skills"
-      className="bg-[#0b1622] text-white py-16 px-6 overflow-hidden"
+      id="skill"
+      className=" bg-[#0a192f] text-white py-16 px-6 overflow-hidden"
     >
       {/* Heading */}
       <motion.div
