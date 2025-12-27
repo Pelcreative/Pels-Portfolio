@@ -1,50 +1,51 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa6";
 import toast, { Toaster } from "react-hot-toast";
 
-
-
 export default function Contact() {
   const [loading, setLoading] = useState(false);
 
-  const sendEmail = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .sendForm(
-        "service_58du8c7",
-        "template_9aux3mp",
-        e.target,
-        "QB0m9tPyZg62rFLQg"
-      )
-      .then(() => {
-        toast.success("Message sent successfully!");
-        e.target.reset();
-      })
-      .catch(() => {
-        toast.error("Failed to send message. Try again.");
-      })
-      .finally(() => {
-        setLoading(false);
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xvzokwbk", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
       });
+
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+        form.reset();
+      } else {
+        toast.error("Failed to send message. Try again.");
+      }
+    } catch (error) {
+      toast.error("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <section id="contact" className="w-full py-20 bg-[#0a192f] text-white">
-      {/* Toast Container */}
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="top-right" />
 
       <h2 className="text-center text-3xl font-bold mb-10">Contact me</h2>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
         
-        {/* LEFT SIDE - CONTACT CARDS */}
+        {/* LEFT SIDE */}
         <div className="flex flex-col gap-6">
-          {/* Email */}
           <div className="bg-[#2da3e9] p-6 rounded-2xl text-center shadow-md">
             <div className="text-4xl mb-3 flex justify-center">
               <MdEmail />
@@ -56,7 +57,6 @@ export default function Contact() {
             </a>
           </div>
 
-          {/* LinkedIn */}
           <div className="bg-[#2da3e9] p-6 rounded-2xl text-center shadow-md">
             <div className="text-4xl mb-3 flex justify-center">
               <FaLinkedinIn />
@@ -72,7 +72,6 @@ export default function Contact() {
             </a>
           </div>
 
-          {/* WhatsApp */}
           <div className="bg-[#2da3e9] p-6 rounded-2xl text-center shadow-md">
             <div className="text-4xl mb-3 flex justify-center">
               <FaWhatsapp />
@@ -89,8 +88,8 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* RIGHT SIDE - CONTACT FORM */}
-        <form onSubmit={sendEmail} className="flex flex-col gap-5">
+        {/* RIGHT SIDE - FORM */}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <input
             type="text"
             name="name"
@@ -115,7 +114,8 @@ export default function Contact() {
             className="w-full p-3 bg-transparent border border-blue-400 rounded-md text-white"
           />
 
-          <input type="hidden" name="title" value="Portfolio Contact" />
+          {/* Optional */}
+          <input type="hidden" name="subject" value="Portfolio Contact" />
 
           <button
             type="submit"
