@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaAward } from "react-icons/fa";
 import { FaLaptopCode } from "react-icons/fa";
+import pro from "../assets/profile.jpeg";
 
 const About = () => {
   return (
@@ -38,7 +39,7 @@ const About = () => {
         >
           <div className="bg-gradient-to-br from-blue-400 to-sky-600 rounded-2xl p-1 shadow-lg">
             <img
-              src="public/whiskAbout me.jpeg"
+              src={pro}
               alt="About me"
               className="rounded-2xl object-contain"
             />
