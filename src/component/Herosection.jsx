@@ -21,7 +21,7 @@ const Herosection = () => {
           <img
             src={logo}
             alt="Logo"
-            className="w-36 sm:w-44 md:w-60 h-auto"
+            className="w-36 sm:w-max md:w-60 h-auto"
           />
         </div>
         <div>
@@ -49,7 +49,7 @@ const Herosection = () => {
 
       <nav className="absolute top-0 z-20 flex w-full justify-between items-center px-5 py-4 lg:selection:hidden lg:hidden">
         <img
-            src="src/assets/Pels_creative.png"
+            src={logo}
             alt="Logo"
             className="w-60 h-auto"
         />
@@ -87,13 +87,12 @@ const Herosection = () => {
 
         <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 ">
           <a
-            href="src/assets/Akinyemi Pelumi CV.pdf"
+            href={CV}
             className="border border-blue-400 text-blue-400 px-6 py-3 rounded-lg hover:bg-blue-400 hover:text-white transition duration-300"
           >
             Download CV
           </a>
-          <a
-            href={CV}
+          <a href="#contact"
             className="bg-blue-500 px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-300"
           >
             Contact Me
@@ -127,9 +126,9 @@ const Herosection = () => {
                 Services
               </li>
               </Link>
-              <li className="text-gray-400 hover:text-white  border-b-2 border-white px-6 py-2">
+              <a href={certi} className="text-gray-400 hover:text-white  border-b-2 border-white px-6 py-2">
                 Certification
-              </li>
+              </a>
             </ul>
           </div>
         </sidebar>

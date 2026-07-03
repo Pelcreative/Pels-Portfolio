@@ -1,5 +1,7 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
+import CV from "../assets/Akinyemi Pelumi CV.pdf";
+import certi from "../assets/certi.pdf";
 
 const Footer = () => {
   return (
@@ -11,9 +13,9 @@ const Footer = () => {
           <li><a href="#home" className="hover:text-blue-200 transition">Home</a></li>
           <li><a href="#about" className="hover:text-blue-200 transition">About</a></li>
           <li><a href="#skill" className="hover:text-blue-200 transition">Skills</a></li>
-          <li><a href="#portfolio" className="hover:text-blue-200 transition">Certification</a></li>
-          <li><a href="public/Akinyemi Pelumi CV.pdf" className="hover:text-blue-200 transition">Download CV</a></li>
-          <li><a  href="#contact" className="hover:text-blue-200 transition">Contact Me</a></li>
+          <li><a href={certi} className="hover:text-blue-200 transition">Certification</a></li>
+          <li><a href={CV} className="hover:text-blue-200 transition">Download CV</a></li>
+          <li><a href="#contact" className="hover:text-blue-200 transition">Contact Me</a></li>
         </ul>
 
         {/* Social Icons */}
